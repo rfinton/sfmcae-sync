@@ -1,5 +1,4 @@
 import csv
-from utils import is_valid_email
 from enum import Enum
 
 class SFC(Enum):
@@ -15,16 +14,18 @@ class SFC(Enum):
     DBSNUM = 9
     INFNUMB = 10
 
+sfc_export = 'sfexport_90429.csv'
+input_file = 'D6FlatRateOffer.csv'
 
 sfc_emails = set() # {list_of_emails}
-with open('sfexport_90429.csv', 'r', encoding='ISO-8859-1') as inf:
+with open(sfc_export, 'r', encoding='ISO-8859-1') as inf:
     reader = csv.reader(inf)
     header = next(reader)
 
     for row in reader:
         sfc_emails.add(row[SFC.EMAIL.value].lower())
 
-with open('140FlatrateOffer.csv', 'r') as inf:
+with open(input_file, 'r') as inf:
     reader = csv.reader(inf)
 
     target_file = open('campaign_import.csv', 'w', newline='')
