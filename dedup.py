@@ -311,6 +311,6 @@ def gds_deep_links():
     target_file.close()
 
 
-run_dedupes()
+# run_dedupes()
 # gds_deep_links()
 # contacts_exist('mpse_processed.csv')
